@@ -43,19 +43,23 @@ def jugar():
     else:
         return "Empate"
 
+
 # Simular el juego n veces
-n = 100000
-resultados = {"Juan": 0, "María": 0, "Empate": 0}
-for _ in range(n):
-    resultado = jugar()
-    resultados[resultado] += 1
+valores_n = [1000, 10000, 100000]  # Valores de n que deseas probar
 
-# Calcular frecuencias relativas
-frec_relativa_juan = resultados["Juan"] / n
-frec_relativa_maria = resultados["María"] / n
-frec_relativa_empate = resultados["Empate"] / n
+for n in valores_n:
+    resultados = {"Juan": 0, "María": 0, "Empate": 0}
+    for _ in range(n):
+        resultado = jugar()
+        resultados[resultado] += 1
 
-print(f"Simulación n = {n}")
-print(f"Frecuencia relativa de Juan ganando: {frec_relativa_juan}")
-print(f"Frecuencia relativa de María ganando: {frec_relativa_maria}")
-print(f"Frecuencia relativa de Empate: {frec_relativa_empate}")
+    # Calcular frecuencias relativas
+    frec_relativa_juan = resultados["Juan"] / n
+    frec_relativa_maria = resultados["María"] / n
+    frec_relativa_empate = resultados["Empate"] / n
+
+    print(f"Simulación n = {n}")
+    print(f"Frecuencia relativa de Juan ganando: {frec_relativa_juan}")
+    print(f"Frecuencia relativa de María ganando: {frec_relativa_maria}")
+    print(f"Frecuencia relativa de Empate: {frec_relativa_empate}")
+    print("\n")
